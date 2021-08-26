@@ -1,6 +1,7 @@
 # crate infra stack
 ```bash
- aws cloudformation create-stack --stack-name infra-stack --template-body file://infra-stack.yaml ```
+ aws cloudformation create-stack --stack-name infra-stack --template-body file://infra-stack.yaml
+```
 
 # update infra stack
  ```bash
