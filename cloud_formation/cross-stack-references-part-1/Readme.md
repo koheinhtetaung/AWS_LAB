@@ -1,7 +1,7 @@
 # This is Cross-Stack-References-Part-1-LAB
 
 - create infra stack
-- [infra-stack.yaml] (./cloud_formation/cross-stack-references-part-1/infra-stack.yaml)
+- [infra-stack.yaml](./cloud_formation/cross-stack-references-part-1/infra-stack.yaml)
 ```bash
  aws cloudformation create-stack --stack-name infra-stack --template-body file://infra-stack.yaml
 ```
