@@ -1,5 +1,5 @@
 AWS::EC2::Route 
-# `RouteTableId` 
+- `RouteTableId` 
 - `Required: Yes`
 
 Creating a VPC comes with `Main` Routing Table. But [AWS::EC2::VPC](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html) doesn't return `RouteTableId` vaule according to the documentation.
