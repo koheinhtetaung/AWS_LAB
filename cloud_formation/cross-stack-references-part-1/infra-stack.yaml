@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  SGVPC1:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: '192.168.0.0/16'
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: 'default'
+      Tags: 
+        - Key: 'Name'
+          Value: 'sg-vpc1'
+  publicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1a'
+      CidrBlock: '192.168.1.0/24'
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: 'Name'
+          Value: 'sg-vpc1-subnet1'
+      VpcId:
+        !Ref SGVPC1
+  publicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1b'
+      CidrBlock: '192.168.2.0/24'
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: 'Name'
+          Value: 'sg-vpc1-subnet2'
+      VpcId:
+        !Ref SGVPC1
+  publicSubnet3:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1c'
+      CidrBlock: '192.168.3.0/24'
+      MapPublicIpOnLaunch: true
+      Tags: 
+        - Key: 'Name'
+          Value: 'sg-vpc1-subnet3'
+      VpcId:
+        !Ref SGVPC1
+Outputs:
+  SGVPC1ID:
+    Description: 'Singapore Region VPC1 ID'
+    Value:
+      !Ref SGVPC1
+    Export:
+      Name:
+        !Sub ${AWS::StackName}-VPC1ID
+  SGVPC1PublicSubnet1ID:
+    Description: "Public Subnet 1 ID"
+    Value:
+      !Ref publicSubnet1
+    Export:
+      Name: 
+        !Sub ${AWS::StackName}-publicsubnet1ID
