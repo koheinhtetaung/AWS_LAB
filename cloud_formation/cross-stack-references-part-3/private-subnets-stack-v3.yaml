@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  infraStackName:
+    Description: 'Name of your Infra CFN Stack'
+    Type: String
+    Default: infra-stack-v3
+Resources:
+  privateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1a'
+      CidrBlock: '192.168.4.0/24'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'private-subnet1'
+      VpcId:
+        Fn::ImportValue:
+          !Sub ${infraStackName}-VPC1ID
+  privateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1b'
+      CidrBlock: '192.168.5.0/24'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'private-subnet2'
+      VpcId:
+        Fn::ImportValue:
+          !Sub ${infraStackName}-VPC1ID
+  privateSubnet3:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: 'ap-southeast-1c'
+      CidrBlock: '192.168.6.0/24'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'private-subnet3'
+      VpcId:
+        Fn::ImportValue:
+          !Sub ${infraStackName}-VPC1ID
