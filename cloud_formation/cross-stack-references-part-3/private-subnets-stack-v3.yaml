@@ -41,3 +41,25 @@ Resources:
       VpcId:
         Fn::ImportValue:
           !Sub ${infraStackName}-VPC1ID
+Outputs:
+  privateSubnet1ID:
+    Description: "private subnet-1 ID"
+    Value:
+      !Ref privateSubnet1
+    Export:
+      Name:
+        !Sub ${AWS::StackName}-privateSubnet1ID
+  privateSubnet2ID:
+    Description: "private subnet-2 ID"
+    Value:
+      !Ref privateSubnet2
+    Export:
+      Name:
+        !Sub ${AWS::StackName}-privateSubnet2ID
+  privateSubnet3ID:
+    Description: "private subnet-3 ID"
+    Value:
+      !Ref privateSubnet3
+    Export:
+      Name:
+        !Sub ${AWS::StackName}-privateSubnet3ID
